@@ -2,6 +2,7 @@
 - include: packages.yml
 - include: configuration.yml
 - include: database.yml
+- include: fernet.yml
 - include: apache.yml
 - include: initialize.yml
 - include: environment.yml
