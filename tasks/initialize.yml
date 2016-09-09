@@ -1,0 +1,12 @@
+- block:
+    - include: initialize/service.yml
+    - include: initialize/endpoints.yml
+    - include: initialize/domain.yml
+    - include: initialize/projects.yml
+    - include: initialize/users.yml
+    - include: initialize/roles.yml
+
+  environment:
+    OS_TOKEN:                '{{ admin_token }}'
+    OS_URL:                  http://controller:35357/v3
+    OS_IDENTITY_API_VERSION: 3

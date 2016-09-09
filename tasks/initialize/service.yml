@@ -1,0 +1,9 @@
+---
+- name:         Get list of services.
+  register:     openstack_services
+  changed_when: no
+  command:      openstack service list -f value -c Type
+
+- name:    Create Identity service.
+  command: openstack service create --name keystone --description "OpenStack Identity" identity
+  when:    '"identity" not in openstack_services.stdout'

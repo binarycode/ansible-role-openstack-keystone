@@ -1,1 +1,9 @@
 ---
+db_password: keystone
+
+admin_token: foobar
+
+region: RegionOne
+
+admin_password: admin
+demo_password:  demo

@@ -1,0 +1,9 @@
+---
+- name:         Get list of domains.
+  register:     openstack_domains
+  changed_when: no
+  command:      openstack domain list -f value -c Name
+
+- name:    Create default domain.
+  command: openstack domain create --description "Default Domain" default
+  when:    '"default" not in openstack_domains.stdout'

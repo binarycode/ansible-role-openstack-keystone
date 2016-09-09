@@ -1,0 +1,18 @@
+---
+- name:         Get list of Identity endpoints.
+  register:     openstack_identity_endpoints
+  changed_when: no
+  command:      openstack endpoint list -f value -c Interface --service identity
+
+- name:    Create Identity endpoints.
+  command: 'openstack endpoint create --region {{ region }} identity {{ item.name }} {{ item.url }}'
+  when:    '"{{ item.name }}" not in openstack_identity_endpoints.stdout'
+  with_items:
+    - name: public
+      url:  http://controller:5000/v3
+
+    - name: internal
+      url:  http://controller:5000/v3
+
+    - name: admin
+      url:  http://controller:35357/v3

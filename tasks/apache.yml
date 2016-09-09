@@ -1,0 +1,18 @@
+---
+- name: Configure Apache.
+  register: keystone_apache_config
+  template:
+    src:  wsgi-keystone.conf.j2
+    dest: /etc/httpd/conf.d/wsgi-keystone.conf
+
+- name: Enable and start Apache.
+  service:
+    name:    httpd.service
+    state:   started
+    enabled: yes
+
+- name: Restart Apache if the config was changed.
+  service:
+    name:  httpd.service
+    state: restarted
+  when: keystone_apache_config.changed

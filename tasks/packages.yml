@@ -1,0 +1,9 @@
+---
+- name: Install Keystone packages.
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - openstack-keystone
+    - httpd
+    - mod_wsgi

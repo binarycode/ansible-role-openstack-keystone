@@ -1,0 +1,11 @@
+---
+- name: Create environment scripts.
+  template:
+    src:  '{{ item.src }}'
+    dest: '{{ item.dest }}'
+  with_items:
+    - src:  admin-openrc.j2
+      dest: /root/admin-openrc
+
+    - src:  demo-openrc.j2
+      dest: /root/demo-openrc

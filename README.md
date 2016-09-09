@@ -11,12 +11,32 @@ None.
 Role Variables
 --------------
 
-None.
+Available variables are listed below, along with default values (see `defaults/main.yml`)
+
+    db_password: keystone
+
+The MySQL keystone user account password.
+
+    admin_token: foobar
+
+Keystone administration token.
+
+    region: RegionOne
+
+Keystone region.
+
+    admin_password: admin
+
+Password for `admin` keystone user.
+
+    demo_password: demo
+
+Password for `demo` keystone user.
 
 Dependencies
 ------------
 
-* `binarycode.crudini`
+None.
 
 Example Playbook
 ----------------

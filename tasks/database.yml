@@ -1,0 +1,22 @@
+---
+- name: Create Keystone DB.
+  mysql_db:
+    name:  keystone
+    state: present
+
+- name: Create Keystone DB users.
+  mysql_user:
+    name:     keystone
+    priv:     keystone.*:ALL
+    state:    present
+    password: '{{ db_password }}'
+    host:     '{{ item }}'
+  with_items:
+    - localhost
+    - '%'
+
+- name:         Populate Keystone DB.
+  changed_when: no
+  command:      keystone-manage db_sync
+  become:       true
+  become_user:  keystone

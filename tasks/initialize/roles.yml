@@ -1,0 +1,24 @@
+---
+- name:         Get list of roles.
+  register:     openstack_roles
+  changed_when: no
+  command:      openstack role list -f value -c Name
+
+- name:    Create roles.
+  command: 'openstack role create {{ item }}'
+  when:    '"{{ item }}" not in openstack_roles.stdout'
+  with_items:
+    - admin
+    - user
+
+- name:         Assign roles.
+  changed_when: no
+  command:      'openstack role add --project {{ item.project }} --user {{ item.user }} {{ item.role }}'
+  with_items:
+    - project: admin
+      user:    admin
+      role:    admin
+
+    - project: demo
+      user:    demo
+      role:    user

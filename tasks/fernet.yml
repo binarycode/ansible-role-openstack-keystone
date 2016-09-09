@@ -1,0 +1,4 @@
+---
+- name:         Initialize Fernet keys.
+  changed_when: no
+  command:      keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone

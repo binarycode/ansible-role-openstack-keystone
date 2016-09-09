@@ -1,0 +1,21 @@
+---
+- name: Configure initial administration token.
+  ini_file:
+    dest:    /etc/keystone/keystone.conf
+    section: DEFAULT
+    option:  admin_token
+    value:   '{{ admin_token }}'
+
+- name: Configure Keystone DB access.
+  ini_file:
+    dest:    /etc/keystone/keystone.conf
+    section: database
+    option:  connection
+    value:   'mysql+pymysql://keystone:{{ db_password }}@controller/keystone'
+
+- name: Configure Fernet token provider.
+  ini_file:
+    dest:    /etc/keystone/keystone.conf
+    section: token
+    option:  provider
+    value:   fernet
