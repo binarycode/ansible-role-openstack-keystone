@@ -1,5 +1,5 @@
 Ansible Role: OpenStack Keystone
-=========
+================================
 
 This role installs and configures OpenStack Keystone on EL7 system.
 
