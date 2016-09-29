@@ -8,5 +8,5 @@
 
   environment:
     OS_TOKEN:                '{{ admin_token }}'
-    OS_URL:                  http://controller:35357/v3
+    OS_URL:                  'http://{{ host }}:35357/v3'
     OS_IDENTITY_API_VERSION: 3

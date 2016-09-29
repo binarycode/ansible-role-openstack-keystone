@@ -11,7 +11,7 @@
     dest:    /etc/keystone/keystone.conf
     section: database
     option:  connection
-    value:   'mysql+pymysql://keystone:{{ db_password }}@controller/keystone'
+    value:   'mysql+pymysql://keystone:{{ db_password }}@{{ host }}/keystone'
 
 - name: Configure Fernet token provider.
   ini_file:

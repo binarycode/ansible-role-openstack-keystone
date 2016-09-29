@@ -17,6 +17,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The MySQL keystone user account password.
 
+    host: controller
+
+Host that runs identity services.
+
     admin_token: foobar
 
 Keystone administration token.

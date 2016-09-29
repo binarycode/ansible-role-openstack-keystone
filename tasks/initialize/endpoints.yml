@@ -9,10 +9,10 @@
   when:    '"{{ item.name }}" not in openstack_identity_endpoints.stdout'
   with_items:
     - name: public
-      url:  http://controller:5000/v3
+      url:  http://{{ host }}:5000/v3
 
     - name: internal
-      url:  http://controller:5000/v3
+      url:  http://{{ host }}:5000/v3
 
     - name: admin
-      url:  http://controller:35357/v3
+      url:  http://{{ host }}:35357/v3

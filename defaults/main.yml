@@ -1,6 +1,8 @@
 ---
 db_password: keystone
 
+host: controller
+
 admin_token: foobar
 
 region: RegionOne
