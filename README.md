@@ -37,6 +37,11 @@ Password for `admin` keystone user.
 
 Password for `demo` keystone user.
 
+    mysql_host: controller
+    mysql_password:
+
+MySQL credentials.
+
 Dependencies
 ------------
 
