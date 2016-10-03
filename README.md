@@ -13,10 +13,6 @@ Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`)
 
-    db_password: keystone
-
-The MySQL keystone user account password.
-
     host: controller
 
 Host that runs identity services.
