@@ -1,7 +1,6 @@
 ---
 - name: Create Keystone DB.
   mysql_db:
-    login_host: '{{ mysql_host }}'
     name:       keystone
     state:      present
 
@@ -10,7 +9,6 @@
     name:       keystone
     priv:       keystone.*:ALL
     state:      present
-    login_host: '{{ mysql_host }}'
     password:   '{{ mysql_password }}'
     host:       '{{ item }}'
   with_items:
